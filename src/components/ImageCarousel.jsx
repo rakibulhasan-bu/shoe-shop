@@ -1,20 +1,20 @@
-import { useRef, useState, useEffect } from "react"
-import { Splide, SplideSlide } from "@splidejs/react-splide"
-import "@splidejs/react-splide/css"
-import { useGlobalContext } from "../context/context"
-import ImageOverlay from "./ImageOverlay"
-import styled from "styled-components"
+import { useRef, useState, useEffect } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import { useGlobalContext } from "../context/context";
+import ImageOverlay from "./ImageOverlay";
+import styled from "styled-components";
 
 const ImageCarousel = ({ productImages, productThumbnails }) => {
-  const [imageIndex, setImageIndex] = useState(0)
+  const [imageIndex, setImageIndex] = useState(0);
   const {
     state: { screenWidth, showingOverlay },
     showImageOverlay,
-  } = useGlobalContext()
+  } = useGlobalContext();
 
   // Carousel and Overlay refs
-  const carouselRef = useRef(null)
-  const overlayRef = useRef(null)
+  const carouselRef = useRef(null);
+  const overlayRef = useRef(null);
 
   const splideOptions = {
     pagination: false,
@@ -25,17 +25,17 @@ const ImageCarousel = ({ productImages, productThumbnails }) => {
     autoWidth: false,
     perPage: 1,
     drag: false,
-  }
+  };
 
   return (
     <>
       <CarouselWrapper>
         <Splide
           onClick={() => {
-            showImageOverlay()
+            showImageOverlay();
             if (carouselRef.current && overlayRef.current) {
-              overlayRef.current.sync(carouselRef.current.splide)
-              setImageIndex(carouselRef.current.splide.index)
+              overlayRef.current.sync(carouselRef.current.splide);
+              setImageIndex(carouselRef.current.splide.index);
             }
           }}
           options={splideOptions}
@@ -43,29 +43,29 @@ const ImageCarousel = ({ productImages, productThumbnails }) => {
           onMove={() => setImageIndex(carouselRef.current.splide.index)}
         >
           {productImages.map((image, idx) => {
-            const { url, alt } = image
+            const { url, alt } = image;
             return (
               <SplideSlide key={idx}>
                 <img src={url} alt={alt} />
               </SplideSlide>
-            )
+            );
           })}
         </Splide>
         <div className="thumbnails">
           {productThumbnails.map((thumbnail, idx) => {
-            const { url, alt } = thumbnail
+            const { url, alt } = thumbnail;
             return (
               <button
                 className={`thumb-btn ${imageIndex === idx ? "active" : ""}`}
                 key={idx}
                 onClick={() => {
-                  setImageIndex(idx)
-                  carouselRef.current.go(idx)
+                  setImageIndex(idx);
+                  carouselRef.current.go(idx);
                 }}
               >
                 <img src={url} alt={alt} />
               </button>
-            )
+            );
           })}
         </div>
       </CarouselWrapper>
@@ -80,8 +80,8 @@ const ImageCarousel = ({ productImages, productThumbnails }) => {
         />
       )}
     </>
-  )
-}
+  );
+};
 
 const CarouselWrapper = styled.section`
   .splide {
@@ -113,7 +113,7 @@ const CarouselWrapper = styled.section`
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 1.2rem;
     max-width: 80%;
     margin: 0 auto;
 
@@ -156,6 +156,6 @@ const CarouselWrapper = styled.section`
       display: none;
     }
   }
-`
+`;
 
-export default ImageCarousel
+export default ImageCarousel;
