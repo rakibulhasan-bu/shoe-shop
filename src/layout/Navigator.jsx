@@ -16,9 +16,7 @@ const Navigator = () => {
           <button onClick={showSidebar} className="menu-btn">
             <Menu />
           </button>
-          <div className="logo">
-            <Logo />
-          </div>
+          <div className="text-2xl font-extrabold font-serif">Shoe Shop</div>
           <ul className="nav-links">
             {navLinks.map((link, idx) => {
               return (
