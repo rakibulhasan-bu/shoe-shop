@@ -3,6 +3,7 @@ import { Logo, Menu, Cart } from "../icons/index";
 import { avatar } from "../assets/imagedata";
 import FloatingCart from "../components/FloatingCart";
 import { useGlobalContext } from "../context/context";
+import { Link } from "react-router-dom";
 
 const navLinks = ["collections", "men", "women", "about", "contact"];
 
@@ -16,12 +17,14 @@ const Navigator = () => {
           <button onClick={showSidebar} className="menu-btn">
             <Menu />
           </button>
-          <div className="text-2xl font-extrabold font-serif">Shoe Shop</div>
+          <Link to={"/"} className="text-2xl font-extrabold font-serif">
+            Shoe Shop
+          </Link>
           <ul className="nav-links">
             {navLinks.map((link, idx) => {
               return (
                 <li key={idx}>
-                  <a href="#">{link}</a>
+                  <a href={`#${link}`}>{link}</a>
                 </li>
               );
             })}

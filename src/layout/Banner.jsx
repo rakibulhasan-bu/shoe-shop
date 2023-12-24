@@ -13,12 +13,13 @@ const Banner = () => {
             className=" flex flex-col text-left"
           >
             <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-left text-slate-800">
-              Two feet ahead of the rest
+              Step into style and comfort
             </h1>
             <p className="mb-5 text-base lg:text-xl text-slate-800 text-left">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              similique aperiam aspernatur reprehenderit natus omnis nostrum
-              dolores. Eos cumque eaque repudiandae corpo
+              Discover the Latest Trends in Footwear - Where Fashion Meets
+              Functionality. Feel free to customize these suggestions based on
+              the specific theme or message you want to convey for your shoe
+              e-commerce website.
             </p>
             <div>
               <button className=" bg-orange-500 px-8 border-2 border-orange-500  duration-500 hover:text-black py-2 rounded-sm font-medium text-lg text-white">
